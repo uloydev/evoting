@@ -1,4 +1,5 @@
 import 'package:evoting/screens/home_screen.dart';
+import 'package:evoting/screens/login_screen.dart';
 import 'package:evoting/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "Montserrat",
       ),
-      home: SplashScreen(),
+      home: LoginScreen(),
     );
   }
 }
