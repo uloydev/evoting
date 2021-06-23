@@ -4,14 +4,14 @@ import 'package:evoting/components/profile_input.dart';
 import 'package:evoting/constants/color.dart';
 import 'package:flutter/material.dart';
 
-class ChangePasswordScreeen extends StatefulWidget {
-  const ChangePasswordScreeen({Key? key}) : super(key: key);
+class ChangePasswordScreen extends StatefulWidget {
+  const ChangePasswordScreen({Key? key}) : super(key: key);
 
   @override
-  _ChangePasswordScreeenState createState() => _ChangePasswordScreeenState();
+  _ChangePasswordScreenState createState() => _ChangePasswordScreenState();
 }
 
-class _ChangePasswordScreeenState extends State<ChangePasswordScreeen> {
+class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

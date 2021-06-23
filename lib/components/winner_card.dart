@@ -25,12 +25,11 @@ class WinnerCard extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(shape: BoxShape.circle),
+            SizedBox(height: 10),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(50),
               child: Image.asset(
-                "assets/images/logo_bem.png",
+                "assets/images/person.jpg",
                 width: 100,
                 height: 100,
               ),

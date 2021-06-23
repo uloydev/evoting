@@ -35,10 +35,8 @@ class VotingHistoryCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: Container(
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(shape: BoxShape.circle),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
                     child: Image.asset(
                       "assets/images/logo_bem.png",
                       width: 100,
