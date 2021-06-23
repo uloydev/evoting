@@ -5,7 +5,6 @@ import 'package:evoting/components/candidate_count_card.dart';
 import 'package:evoting/components/start_voting_button.dart';
 import 'package:evoting/components/voting_card.dart';
 import 'package:evoting/constants/color.dart';
-import 'package:evoting/constants/gradient.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

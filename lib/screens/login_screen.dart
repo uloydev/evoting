@@ -16,6 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: primaryColor,
       body: Center(
         child: Card(
+          elevation: 20,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
