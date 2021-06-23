@@ -1,4 +1,5 @@
 import 'package:evoting/screens/candidate_detail_screen.dart';
+import 'package:evoting/screens/candidate_selector_screen.dart';
 import 'package:evoting/screens/change_password_screen.dart';
 import 'package:evoting/screens/history_screen.dart';
 import 'package:evoting/screens/home_screen.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "Montserrat",
       ),
-      home: CandidateDetailScreen(),
+      home: CandidateSelectorScreen(),
     );
   }
 }
