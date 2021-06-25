@@ -24,6 +24,7 @@ class VotingFactory extends Factory
         return [
             "finished_at" => now()->addDays($this->faker->randomElement([0,1,2,3,4,5])),
             "logo" => "https://via.placeholder.com/300",
+            "name" => "Pemilihan ".$this->faker->sentence($nbWords = 2)
         ];
     }
 }

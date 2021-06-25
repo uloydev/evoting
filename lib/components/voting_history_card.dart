@@ -55,18 +55,6 @@ class VotingHistoryCard extends StatelessWidget {
             SizedBox(height: 15),
             CandidateScore(),
             SizedBox(height: 15),
-            Row(
-              children: [
-                Icon(Icons.timer),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "voted at 22-06-2021",
-                  style: TextStyle(fontSize: 14),
-                )
-              ],
-            )
           ],
         ),
       ),

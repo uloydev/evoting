@@ -5,11 +5,13 @@ class LoginTextInput extends StatelessWidget {
   final String hintText;
   final Icon prefixIcon;
   final bool isObsecure;
+  final TextEditingController controller;
 
   const LoginTextInput({
     Key? key,
     required this.hintText,
     required this.prefixIcon,
+    required this.controller,
     this.isObsecure = false,
   }) : super(key: key);
 
@@ -21,6 +23,7 @@ class LoginTextInput extends StatelessWidget {
         color: lightgreyColor,
       ),
       child: TextFormField(
+        controller: this.controller,
         textAlignVertical: TextAlignVertical.center,
         keyboardType: TextInputType.emailAddress,
         obscureText: this.isObsecure,

@@ -1,11 +1,15 @@
 import 'package:evoting/components/candidate_count_card.dart';
 import 'package:evoting/components/start_voting_button.dart';
 import 'package:evoting/constants/color.dart';
+import 'package:evoting/models/voting_model.dart';
 import 'package:flutter/material.dart';
 
 class VotingCard extends StatelessWidget {
+  final Voting voting;
+
   const VotingCard({
     Key? key,
+    required this.voting,
   }) : super(key: key);
 
   @override
@@ -21,7 +25,7 @@ class VotingCard extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "Pemira BEM",
+              this.voting.name,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
@@ -33,12 +37,14 @@ class VotingCard extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.asset(
-                      "assets/images/logo_bem.png",
-                      width: 100,
-                      height: 100,
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.network(
+                        this.voting.logo,
+                        width: 100,
+                        height: 100,
+                      ),
                     ),
                   ),
                 ),
@@ -59,7 +65,7 @@ class VotingCard extends StatelessWidget {
                       width: 10,
                     ),
                     Text(
-                      "3 days left",
+                      this.voting.finishedAt,
                       style: TextStyle(fontSize: 14),
                     )
                   ],

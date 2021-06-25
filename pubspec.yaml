@@ -23,8 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http:
-  get:
+  shared_preferences: ^2.0.6
+  http: ^0.13.3
+  get: ^4.1.4
   curved_navigation_bar: ^1.0.1
 
 

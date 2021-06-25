@@ -14,7 +14,8 @@ class Voting extends Model
     protected $fillable= [
         'finished_at',
         'winner_candidate_id',
-        'logo'
+        'logo',
+        'name',
     ];
 
     protected $casts = [

@@ -1,6 +1,8 @@
 import 'package:evoting/components/login_text_input.dart';
 import 'package:evoting/constants/color.dart';
+import 'package:evoting/services/remote_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -10,6 +12,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,11 +46,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 48),
                 LoginTextInput(
+                  controller: emailController,
                   hintText: 'Email',
                   prefixIcon: Icon(Icons.mail_outline),
                 ),
                 SizedBox(height: 24),
                 LoginTextInput(
+                  controller: passwordController,
                   prefixIcon: Icon(Icons.vpn_key),
                   hintText: "Password",
                   isObsecure: true,
@@ -56,7 +63,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   padding: EdgeInsets.symmetric(vertical: 0, horizontal: 40.0),
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (await RemoteServices.attempLogin(
+                        emailController.value, passwordController.value)) {
+                      Get.offNamed('/home');
+                    } else {
+                      Get.snackbar(
+                        "Error",
+                        "email atau password salah",
+                      );
+                    }
+                  },
                   color: primaryColor,
                   child: Text(
                     "login",

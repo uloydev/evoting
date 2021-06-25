@@ -1,7 +1,28 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+import 'package:evoting/local_data.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class InitialScreen extends StatefulWidget {
+  const InitialScreen({Key? key}) : super(key: key);
+
+  @override
+  _InitialScreenState createState() => _InitialScreenState();
+}
+
+class _InitialScreenState extends State<InitialScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 5), () async {
+      if (await getStringFromSF("api_token") == null) {
+        Get.offNamed('/login');
+      } else {
+        Get.offNamed('/home');
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

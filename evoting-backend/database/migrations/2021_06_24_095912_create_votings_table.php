@@ -15,6 +15,7 @@ class CreateVotingsTable extends Migration
     {
         Schema::create('votings', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->datetime('finished_at')->nullable();
             $table->string('logo')->nullable();
             $table->unsignedInteger('winner_candidate_id')->nullable();

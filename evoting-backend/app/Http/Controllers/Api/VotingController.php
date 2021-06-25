@@ -12,7 +12,12 @@ class VotingController extends Controller
 
     public function availableVoting()
     {
-        return Voting::with('votingCandidates')->withCount('votingCandidates')->where('finished_at', '>', now())->get();
+        return Voting::with(['votingCandidates' => function ($query) {
+            return $query->withCount('userVotes');
+        }])
+            ->withCount('votes')
+            ->where('finished_at', '>', now())
+            ->get();
     }
 
     public function votingHistory()

@@ -5,7 +5,9 @@ import 'package:evoting/components/candidate_count_card.dart';
 import 'package:evoting/components/start_voting_button.dart';
 import 'package:evoting/components/voting_card.dart';
 import 'package:evoting/constants/color.dart';
+import 'package:evoting/controllers/voting_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,6 +17,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  VotingController votingController = Get.put(VotingController());
+
+  @override
+  void initState() {
+    super.initState();
+    this.votingController.fetchAvailableVoting();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,27 +62,50 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Container(
         color: Colors.white,
-        child: ListView(
-          padding: EdgeInsets.symmetric(vertical: 30, horizontal: 40),
-          children: [
-            Text(
-              "Available Voting",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: primaryColor,
-              ),
-            ),
-            SizedBox(height: 20),
-            VotingCard(),
-            SizedBox(height: 20),
-            VotingCard(),
-            SizedBox(height: 20),
-            VotingCard(),
-            SizedBox(height: 20),
-            VotingCard(),
-            SizedBox(height: 20),
-          ],
+        child: Container(
+          padding: EdgeInsets.all(20),
+          child: Obx(() {
+            if (votingController.isLoading.value)
+              return Center(child: CircularProgressIndicator());
+            else
+              return ListView.builder(
+                itemCount: votingController.votingList.length,
+                itemBuilder: (ctx, index) {
+                  if (index == 0) {
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            bottom: 20,
+                          ),
+                          child: Text(
+                            "Available Voting",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: primaryColor,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: VotingCard(
+                            voting: votingController.votingList[index],
+                          ),
+                        ),
+                      ],
+                    );
+                  } else {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: VotingCard(
+                        voting: votingController.votingList[index],
+                      ),
+                    );
+                  }
+                },
+              );
+          }),
         ),
       ),
     );
