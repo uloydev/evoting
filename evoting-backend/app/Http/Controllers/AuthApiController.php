@@ -46,4 +46,9 @@ class AuthApiController extends Controller
             'message' => 'gagal memperbarui password!',
         ];
     }
+
+    public function getUser()
+    {
+        return Auth::user();
+    }
 }

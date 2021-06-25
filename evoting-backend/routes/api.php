@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthApiController;
+use App\Http\Controllers\Api\VotingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,11 @@ Route::post('register', [AuthApiController::class, 'register']);
 
 Route::middleware('auth:api')->group(function () {
     Route::post('reset-password', [AuthApiController::class, 'resetPassword']);
-});
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::get('user', [AuthApiController::class, 'getUser']);
+    
+    Route::prefix('voting')->group(function () {
+        Route::get('available', [VotingController::class, 'availableVoting']);
+        Route::get('history', [VotingController::class, 'votingHistory']);
+        Route::post('vote', [VotingController::class, 'vote']);
+    });
 });

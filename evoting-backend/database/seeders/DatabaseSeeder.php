@@ -13,6 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(100)->create();
+        \App\Models\User::factory(1)->state(['email' => 'test@test.com'])->create();
+        $this->call([
+            VotingSeeder::class,
+            VotingCandidateSeeder::class,
+            UserVoteSeeder::class
+        ]);
     }
 }
