@@ -1,19 +1,17 @@
 import 'package:evoting/screens/candidate_detail_screen.dart';
 import 'package:evoting/screens/candidate_selector_screen.dart';
 import 'package:evoting/screens/change_password_screen.dart';
-import 'package:evoting/screens/history_screen.dart';
-import 'package:evoting/screens/home_screen.dart';
 import 'package:evoting/screens/login_screen.dart';
-import 'package:evoting/screens/profile_screen.dart';
 import 'package:evoting/screens/initial_screen.dart';
+import 'package:evoting/screens/wrapper_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(EvotingApp());
 }
 
-class MyApp extends StatelessWidget {
+class EvotingApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -32,14 +30,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "Montserrat",
       ),
-      home: HomeScreen(),
       initialRoute: '/initial',
       routes: {
-        '/home': (context) => HomeScreen(),
+        '/home': (context) => WrapperScreen(),
         '/login': (context) => LoginScreen(),
         '/initial': (context) => InitialScreen(),
-        '/profile': (context) => ProfileScreen(),
-        '/history': (context) => HistoryScreen(),
         '/candidate-selector': (context) => CandidateSelectorScreen(),
         '/candidate-detail': (context) => CandidateDetailScreen(),
         '/change-password': (context) => ChangePasswordScreen(),

@@ -64,9 +64,12 @@ class VotingCard extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text(
-                      this.voting.finishedAt,
-                      style: TextStyle(fontSize: 14),
+                    Flexible(
+                      child: Text(
+                        this.voting.finishedAt,
+                        style: TextStyle(fontSize: 14),
+                        overflow: TextOverflow.visible,
+                      ),
                     )
                   ],
                 )),

@@ -22,4 +22,16 @@ class VotingController extends GetxController {
       isLoading(false);
     }
   }
+
+  void fetchVotingHistory() async {
+    try {
+      isLoading(true);
+      var votings = await RemoteServices.fetchVotingHistory();
+      if (votings.isNotEmpty) {
+        votingList.value = votings;
+      }
+    } finally {
+      isLoading(false);
+    }
+  }
 }

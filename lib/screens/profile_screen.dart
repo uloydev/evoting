@@ -14,97 +14,59 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.white,
-        color: primaryColor,
-        items: <Widget>[
-          Icon(
-            Icons.add,
-            size: 30,
-            color: Colors.white,
+    return Container(
+      padding: EdgeInsets.all(30),
+      child: ListView(
+        children: [
+          Center(
+            child: Image.asset(
+              "assets/images/profile_icon.png",
+              width: 150,
+              height: 150,
+            ),
           ),
-          Icon(
-            Icons.list,
-            size: 30,
-            color: Colors.white,
+          SizedBox(height: 20),
+          Text(
+            "Nama Lengkap",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-          Icon(
-            Icons.compare_arrows,
-            size: 30,
-            color: Colors.white,
+          SizedBox(height: 10),
+          ProfileInput(
+            isReadOnly: true,
+            initialValue: "Uloydev",
           ),
+          SizedBox(height: 20),
+          Text(
+            "Email",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 10),
+          ProfileInput(
+            isReadOnly: true,
+            initialValue: "uloydev@gmail.com",
+          ),
+          SizedBox(height: 20),
+          Text(
+            "ID Number",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          SizedBox(height: 10),
+          ProfileInput(
+            isReadOnly: true,
+            initialValue: "123456789",
+          ),
+          SizedBox(height: 40),
+          PrimaryButton(text: "Change Password"),
         ],
-        onTap: (index) {
-          //Handle button tap
-        },
-      ),
-      appBar: AppBar(
-        leading: GestureDetector(
-          child: Icon(Icons.arrow_back),
-          onTap: () => {},
-        ),
-        centerTitle: true,
-        title: Text(
-          'Profile',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: primaryColor,
-      ),
-      body: Container(
-        padding: EdgeInsets.all(30),
-        child: ListView(
-          children: [
-            Center(
-              child: Image.asset(
-                "assets/images/profile_icon.png",
-                width: 150,
-                height: 150,
-              ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              "Nama Lengkap",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            SizedBox(height: 10),
-            ProfileInput(
-              isReadOnly: true,
-              initialValue: "Uloydev",
-            ),
-            SizedBox(height: 20),
-            Text(
-              "Email",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            SizedBox(height: 10),
-            ProfileInput(
-              isReadOnly: true,
-              initialValue: "uloydev@gmail.com",
-            ),
-            SizedBox(height: 20),
-            Text(
-              "ID Number",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            SizedBox(height: 10),
-            ProfileInput(
-              isReadOnly: true,
-              initialValue: "123456789",
-            ),
-            SizedBox(height: 40),
-            PrimaryButton(text: "Change Password"),
-          ],
-        ),
       ),
     );
   }

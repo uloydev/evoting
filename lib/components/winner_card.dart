@@ -1,9 +1,13 @@
 import 'package:evoting/constants/color.dart';
+import 'package:evoting/models/voting_candidate_model.dart';
 import 'package:flutter/material.dart';
 
 class WinnerCard extends StatelessWidget {
+  final VotingCandidate winner;
+
   const WinnerCard({
     Key? key,
+    required this.winner,
   }) : super(key: key);
 
   @override
@@ -28,8 +32,8 @@ class WinnerCard extends StatelessWidget {
             SizedBox(height: 10),
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
-              child: Image.asset(
-                "assets/images/person.jpg",
+              child: Image.network(
+                this.winner.image,
                 width: 100,
                 height: 100,
               ),

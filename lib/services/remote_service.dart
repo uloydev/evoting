@@ -8,13 +8,24 @@ import 'package:http/http.dart' as http;
 
 class RemoteServices {
   static var client = http.Client();
-  static const baseUrl = "http://a2a1dc64a35b.ap.ngrok.io";
+  static const baseUrl = "http://9b9f914ba30a.ap.ngrok.io";
   static const apiToken =
       "kAKvL9ALlDW0QlmXjXue54qJCehMRQaD1sqckzgwA2ljuJvUVvWAkMfhUqa4";
 
   static Future<List<Voting>> fetchAvailableVoting() async {
     var response = await client
         .get(Uri.parse('$baseUrl/api/voting/available?api_token=$apiToken'));
+    if (response.statusCode == 200) {
+      var jsonString = response.body;
+      return dataVotingFromJson(jsonString);
+    } else {
+      throw Exception("gagal mengambil data");
+    }
+  }
+
+  static Future<List<Voting>> fetchVotingHistory() async {
+    var response = await client
+        .get(Uri.parse('$baseUrl/api/voting/history?api_token=$apiToken'));
     if (response.statusCode == 200) {
       var jsonString = response.body;
       return dataVotingFromJson(jsonString);
