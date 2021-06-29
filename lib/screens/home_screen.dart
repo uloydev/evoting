@@ -1,9 +1,6 @@
 import 'dart:ui';
-
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:evoting/components/voting_card.dart';
 import 'package:evoting/constants/color.dart';
-import 'package:evoting/constants/widget.dart';
 import 'package:evoting/controllers/voting_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

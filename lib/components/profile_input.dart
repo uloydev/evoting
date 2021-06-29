@@ -4,16 +4,18 @@ class ProfileInput extends StatelessWidget {
   final bool isObsecure;
   final bool isReadOnly;
   final String hint;
-  final String initialValue;
+  final String? initialValue;
   final TextInputType keyboardType;
+  final TextEditingController? controller;
 
   const ProfileInput({
     Key? key,
     this.isReadOnly = false,
     this.isObsecure = false,
-    this.initialValue = "",
+    this.initialValue,
     this.hint = "",
     this.keyboardType = TextInputType.text,
+    this.controller,
   }) : super(key: key);
 
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class ProfileInput extends StatelessWidget {
         color: Colors.white,
       ),
       child: TextFormField(
+        controller: this.controller,
         textAlignVertical: TextAlignVertical.center,
         keyboardType: this.keyboardType,
         autofocus: false,

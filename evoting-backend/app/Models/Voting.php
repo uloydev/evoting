@@ -27,6 +27,11 @@ class Voting extends Model
         return Carbon::parse($value)->diffForHumans();
     }
 
+    public function setIsVotedAttribute($isVoted)
+    {
+        $this->attributes['is_voted'] = $isVoted;
+    }
+
     public function votingCandidates()
     {
         return $this->hasMany('App\Models\VotingCandidate');

@@ -15,6 +15,7 @@ class Voting {
   String name;
   List<VotingCandidate> candidates;
   int votesCount;
+  bool isVoted;
 
   Voting({
     required this.id,
@@ -23,6 +24,7 @@ class Voting {
     required this.name,
     required this.candidates,
     required this.votesCount,
+    required this.isVoted,
   });
 
   factory Voting.fromJson(Map<String, dynamic> data) => Voting(
@@ -31,6 +33,7 @@ class Voting {
         name: data['name'],
         finishedAt: data['finished_at'],
         votesCount: data['votes_count'],
+        isVoted: data['is_voted'],
         candidates:
             dataVotingCandidateFromJson(json.encode(data['voting_candidates'])),
       );

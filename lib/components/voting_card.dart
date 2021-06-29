@@ -1,3 +1,4 @@
+import 'package:evoting/components/already_voted_button.dart';
 import 'package:evoting/components/candidate_count_card.dart';
 import 'package:evoting/components/start_voting_button.dart';
 import 'package:evoting/constants/color.dart';
@@ -51,7 +52,7 @@ class VotingCard extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                CandidateCountCard(),
+                CandidateCountCard(count: this.voting.candidates.length),
               ],
             ),
             SizedBox(height: 15),
@@ -75,7 +76,9 @@ class VotingCard extends StatelessWidget {
                 )),
                 SizedBox(width: 10),
                 Expanded(
-                  child: StartVotingButton(),
+                  child: this.voting.isVoted
+                      ? AlreadyVotedButton()
+                      : StartVotingButton(candidates: this.voting.candidates),
                 ),
               ],
             )

@@ -1,12 +1,8 @@
 import 'dart:ui';
-
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:evoting/components/candidate_score.dart';
-import 'package:evoting/components/primary_button.dart';
-import 'package:evoting/components/profile_input.dart';
-import 'package:evoting/components/winner_card.dart';
+import 'package:evoting/components/main_app_bar.dart';
 import 'package:evoting/constants/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CandidateDetailScreen extends StatefulWidget {
   const CandidateDetailScreen({Key? key}) : super(key: key);
@@ -16,24 +12,18 @@ class CandidateDetailScreen extends StatefulWidget {
 }
 
 class _CandidateDetailScreenState extends State<CandidateDetailScreen> {
-  static const String lorem =
-      'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.';
+  var candidate;
+
+  @override
+  void initState() {
+    super.initState();
+    candidate = Get.arguments['candidate'];
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          child: Icon(Icons.arrow_back),
-          onTap: () => {},
-        ),
-        centerTitle: true,
-        title: Text(
-          'Visi Misi',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: primaryColor,
-      ),
+      appBar: mainAppBar("Detail Calon"),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 30, horizontal: 40),
         child: ListView(
@@ -41,8 +31,8 @@ class _CandidateDetailScreenState extends State<CandidateDetailScreen> {
             Center(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(150),
-                child: Image.asset(
-                  "assets/images/person.jpg",
+                child: Image.network(
+                  this.candidate.image,
                   width: 150,
                   height: 150,
                 ),
@@ -50,7 +40,7 @@ class _CandidateDetailScreenState extends State<CandidateDetailScreen> {
             ),
             SizedBox(height: 20),
             Text(
-              "Calon 1",
+              this.candidate.name,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
@@ -75,7 +65,7 @@ class _CandidateDetailScreenState extends State<CandidateDetailScreen> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      lorem,
+                      this.candidate.visi,
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 14),
                     ),
@@ -104,7 +94,7 @@ class _CandidateDetailScreenState extends State<CandidateDetailScreen> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      lorem,
+                      this.candidate.misi,
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 14),
                     ),

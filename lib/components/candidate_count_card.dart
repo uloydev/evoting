@@ -2,8 +2,11 @@ import 'package:evoting/constants/color.dart';
 import 'package:flutter/material.dart';
 
 class CandidateCountCard extends StatelessWidget {
+  final int count;
+
   const CandidateCountCard({
     Key? key,
+    required this.count,
   }) : super(key: key);
 
   @override
@@ -18,7 +21,7 @@ class CandidateCountCard extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "2",
+              this.count.toString(),
               style: TextStyle(
                 color: lightgreyColor,
                 fontSize: 48,

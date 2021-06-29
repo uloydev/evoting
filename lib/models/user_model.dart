@@ -20,7 +20,7 @@ class User {
   factory User.fromJson(Map<String, dynamic> data) => User(
         id: data['id'],
         name: data['name'],
-        email: data['finished_at'],
+        email: data['email'],
       );
 
   Map<String, dynamic> toJson() => {
