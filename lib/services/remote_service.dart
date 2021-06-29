@@ -1,9 +1,8 @@
 import 'dart:convert';
-
 import 'package:evoting/local_data.dart';
 import 'package:evoting/models/user_model.dart';
 import 'package:evoting/models/voting_model.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class RemoteServices {
@@ -88,10 +87,8 @@ class RemoteServices {
     });
     if (response.statusCode == 201) {
       var jsonString = response.body;
-      print(jsonString);
       return jsonString.isNotEmpty;
     }
-    print(response.statusCode);
     return false;
   }
 }

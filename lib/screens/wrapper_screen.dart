@@ -6,7 +6,6 @@ import 'package:evoting/screens/history_screen.dart';
 import 'package:evoting/screens/home_screen.dart';
 import 'package:evoting/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class WrapperScreen extends StatefulWidget {
   const WrapperScreen({Key? key}) : super(key: key);

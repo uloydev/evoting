@@ -1,8 +1,5 @@
-import 'dart:ui';
 import 'package:evoting/components/candidate_selector_card.dart';
 import 'package:evoting/components/main_app_bar.dart';
-import 'package:evoting/constants/color.dart';
-import 'package:evoting/models/voting_candidate_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

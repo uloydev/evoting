@@ -20,7 +20,7 @@ class UserVoteSeeder extends Seeder
         foreach (Voting::with('votingCandidates')->get() as $voting) {
             $index = 0;
             foreach ($voting->votingCandidates as $candidate) {
-                for ($i=0; $i < rand(20, 33); $i++) { 
+                for ($i=0; $i < rand(10, 33); $i++) { 
                     UserVote::create([
                         "voting_id" => $voting->id,
                         "voting_candidate_id" => $candidate->id,

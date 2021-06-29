@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:evoting/local_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
